@@ -3,6 +3,10 @@
 Catch-Phish inspects the active browser tab's URL and page to provide a phishing/risk status. It uses IPQualityScore to score URLs and displays an advisory in the popup.
 It works in Conjucion with the [CatchPhish Desktop Application](https://github.com/lemoncode-xo/CatchPhish#CatchPhish) for detailed risk analysis on web pages as you browse.
 
+#### CatchPhish Components
+- [Desktop Application](https://github.com/lemoncode-xo/CatchPhish#CatchPhish)
+- Web Browser Extension (This project)
+
 ![CatchPhish Extension Screenshot](docs/capture_clean.png )
 
 ## Contents
