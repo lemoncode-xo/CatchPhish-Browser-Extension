@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+
+    "name": "Catch Phish",
+    "description": "Analyze Webpages and urls to detect phishing",
+    "version": "1.0.0",
+    "author": "Ojo Philemon [lemonCod3]",
+    
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "./images/icon.png",
+        "default_title" : "Catch-Phish"
+    },
+
+    "icons": {
+        "48": "./images/icon.png"
+    },
+
+    "background": {
+        "service_worker": "background.js"
+    },
+
+    "host_permissions": [
+        "https://ipqualityscore.com/*"
+    ],
+
+    "permissions": [
+        "https://ipqualityscore.com/*",
+        "storage",
+        "tabs",
+        "activeTab",
+        "scripting",
+        "*://*/*",
+        "notifications"
+    ]
+}

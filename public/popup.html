@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <title>Catch-Phish</title>
+        
+        <!-- Handle Different Browser types -->
+        <script src="webbrowser.js"></script>
+        <!-- jquery -->
+        <script src="jquery/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <style>
+            body {
+                width: 400px;
+                background-color: coral;
+                margin: 0;
+                margin-top: 10px;
+                font-size: 12px;
+            }
+            input {
+                top: -1px;
+            }
+            label {
+                margin-left: 2px;
+            }
+            img {
+                width: 32px;
+                display: inline;
+            }
+            img.txt {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            div {
+                background: #f9f9f9;
+            }
+            div.theme-bg {
+                background: coral;
+            }
+            h1,h2,h3,h4,h5 {
+                text-align: center;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            h1,h2,h3,h4,h5.txt {
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                text-align: center;
+            }
+            a.full_info {
+                color: coral;
+                padding-right: 10px;
+                margin-left: 65%;
+            }
+            .attached_url {
+                font-size: small;
+                text-align: left;
+                margin-left: 5px;
+                margin-top: 0;
+                padding-top: 0;
+            }
+            .plugin_header {
+                /* text-align: center; */
+                background-color: #fff;
+                padding: 3px 4px 3px 8px;
+                cursor: default;
+            }
+            .plugin_header img{
+                margin-left: 20px;
+                filter: drop-shadow(67);
+            }
+            .plugin_header_txt {
+                font-size: 22px;
+                font-weight: bold;
+                position: relative;
+                top: -7px;
+                color: rgba(0, 64, 128, 0.8);
+            }
+            #error_msg {
+                text-align: center; 
+                margin-left: 10px; 
+                margin-right: 10px;
+            }
+            #review_summary {
+                font-size: 14px; 
+                text-align: justify; 
+                margin-left: 10px; 
+                margin-right: 10px;
+            }
+            .menu-entry { padding: 3px 4px 3px 8px; cursor: pointer; }
+            .menu-entry:hover {
+                -webkit-transition: all 0.3s ease-out;
+                transition: all 0.3s ease-out;
+                background: #F2F2F2;
+            }
+            .menu-entry .txt { margin-left: 20px; text-decoration: none; }
+            .menu-info { padding: 3px 4px 3px 8px; }
+            .menu-info .txt { margin-left: 20px; display: block; text-decoration: none; }
+            .menu-entry {position: relative;}
+            .menu-entry.checked .txt:before {
+                content: '';
+                background-image: url(images/checked.png);
+                background-size: contain;
+                width: 14px;
+                height: 12px;
+                display: block;
+                position: absolute;
+                top: 50%;
+                margin-top: -6px;
+            }
+            .bottom { margin-bottom: 6px; }
+
+            hr { border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.2); }
+
+            .good { color: yellowgreen; font-weight: bold; }
+            .bad { color: red; }
+            .warning { color: Yellow; }
+            .url { color: blue; }
+            .theme-color{ color: coral; }
+            .underline { text-decoration: underline; }
+            .status { text-transform: uppercase; font-style: italic; }
+            .based-on{ color:coral; font-weight: bold; }
+            .disabled {pointer-events: none; color:grey; cursor: not-allowed;}
+            .black { color: black; }
+        </style>
+
+        <div>
+            <!--Extension Header -->
+            <div class="plugin_header">
+                <img src="./images/icon.png" alt="catchphish icon">
+                <span width="4px"></span>
+                <span class="plugin_header_txt">Catch-Phish</span>
+            </div>
+
+            <!-- Extension content -->
+            <div class="cp_content">
+
+                <div id="cp_loading" class="menu-info">
+                    <span class="txt theme-color">Analyzing current page contents, please wait...</span>
+                </div>
+
+                <hr>
+
+                <div id="cp_info">
+                    <div id="cp_summary">
+                        <h4 class="bad" id="error_msg"></h4>
+
+                        <img class="txt" id="phishing_status_img" alt="risk status img" src="./images/default-status.png">
+
+                        <h3 class="txt" id="page_title" title="Page Title"></h3>
+
+                        <br>
+                        
+                        <p class="attached_url">
+                            <span class="url" id="page_domain"></span>
+                            <br>
+                            <span class="url" id="page_domain_ip"></span>
+                            <br>
+                            <span class="url" id="page_domain_risk_score"></span>
+                        </p>
+
+                        <div id="review_summary"></div>
+                        
+                        <br>
+                        
+                        <div id="cp_moreinfo">
+                            <a href="#" class="full_info" id="full_info">_</a>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <hr>
+                
+                <div class="bottom">
+                    <div class="menu-entry" id="openDesktopAppLink">
+                        <span class="txt">Open Desktop Application</span>
+                    </div>
+                    <div class="menu-entry" id="feedbackLink">
+                        <a class="txt black" rel="noopener" href="https://form.jotform.com/230052303792548" target="_blank">Leave Feedback</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="popup.js"></script>
+    </body>
+</html>
